@@ -547,7 +547,10 @@ def read_json(
         - ``'columns'`` : dict like ``{{column -> {{index -> value}}}}``
         - ``'values'`` : just the values array
         - ``'table'`` : dict like ``{{'schema': {{schema}}, 'data': {{data}}}}``
-
+        - ``'fixtures'``: list like
+        ``[{{'model' -> value, 'pk' -> value, 'fields': {{column -> value}}}},
+         ... ,
+         {{'model' -> value, 'pk' -> value, 'fields': {{column -> value}}}}]``
         The allowed and default values depend on the value
         of the `typ` parameter.
 
@@ -560,7 +563,7 @@ def read_json(
         * when ``typ == 'frame'``,
 
           - allowed orients are ``{{'split','records','index',
-            'columns','values', 'table'}}``
+            'columns','values', 'table', 'fixtures'}}``
           - default is ``'columns'``
           - The DataFrame index must be unique for orients ``'index'`` and
             ``'columns'``.
