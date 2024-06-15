@@ -547,10 +547,7 @@ def read_json(
         - ``'columns'`` : dict like ``{{column -> {{index -> value}}}}``
         - ``'values'`` : just the values array
         - ``'table'`` : dict like ``{{'schema': {{schema}}, 'data': {{data}}}}``
-        - ``'fixtures'``: list like
-        ``[{{'model' -> value, 'pk' -> value, 'fields': {{column -> value}}}},
-         ... ,
-         {{'model' -> value, 'pk' -> value, 'fields': {{column -> value}}}}]``
+        - ``'fixtures'``: django fixtures
         The allowed and default values depend on the value
         of the `typ` parameter.
 
