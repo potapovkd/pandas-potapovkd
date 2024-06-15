@@ -1,3 +1,4 @@
+import io
 import json
 
 from pandas import (
@@ -16,6 +17,9 @@ def test_read_json_fixtures():
         ]
     )
 
+    str_fixtures = json.dumps(json_fixtures)
+    bytes_fixtures = io.BytesIO(str_fixtures.encode())
+
     expected_df = DataFrame(
         {
             "model": ["app.model", "app.model", "app.model"],
@@ -25,6 +29,6 @@ def test_read_json_fixtures():
         }
     )
 
-    result_df = read_json(json_fixtures, orient="fixtures")
+    result_df = read_json(bytes_fixtures, orient="fixtures")
 
     tm.assert_frame_equal(result_df, expected_df)
