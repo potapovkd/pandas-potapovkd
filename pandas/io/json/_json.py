@@ -548,6 +548,7 @@ def read_json(
         - ``'values'`` : just the values array
         - ``'table'`` : dict like ``{{'schema': {{schema}}, 'data': {{data}}}}``
         - ``'fixtures'``: django fixtures
+
         The allowed and default values depend on the value
         of the `typ` parameter.
 
