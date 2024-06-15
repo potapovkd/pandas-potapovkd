@@ -1350,11 +1350,11 @@ class FrameParser(Parser):
         elif orient == "table":
             self.obj = parse_table_schema(json, precise_float=self.precise_float)
         elif orient == "fixtures":
-            decoded = DataFrame(
+            fixtures = DataFrame(
                 ujson_loads(json, precise_float=self.precise_float), dtype=None
             )
-            data = DataFrame(decoded["fields"].to_dict()).T
-            self.obj = concat([decoded["model"], decoded["pk"], data], axis=1)
+            data = DataFrame(fixtures["fields"].to_dict()).T
+            self.obj = concat([fixtures["model"], fixtures["pk"], data], axis=1)
         else:
             self.obj = DataFrame(
                 ujson_loads(json, precise_float=self.precise_float), dtype=None
